@@ -10,18 +10,26 @@ const Form = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    //Data will be stored here when cliked to submit btn
     const [userData, setuserData] = useState([])
 
+    //onSubmit
     const onSubmit = (event) => {
         event.preventDefault();
-        const newUserData = { username: username, email: email, password: password}
-        setuserData([...userData, newUserData])
-        setUsername("")
-        setEmail("")
-        setPassword("")
+        if(username && email && password){
+            const newUserData = {  id: new Date().getTime().toString(), username, email, password };
+            setuserData([...userData, newUserData])
+    
+            setUsername("")
+            setEmail("")
+            setPassword("")
+        }else{
+            alert("Please fill the form properly")
+        }
+
     }
 
-   
+      
     return (
         <>
         <form onSubmit={onSubmit}>
@@ -66,12 +74,15 @@ const Form = () => {
 
         <ol>
         {
-            userData.map((data, index)=> {
+            userData.map((data)=> {
+                //object destructuring 
+                const {id, email, password} = data;
                 return(
-                        <li key={index}>
-                        Username:{data.username},
-                        Email: {data.email},
-                        Password:{data.password}
+                        <li 
+                        key={id}>
+                        Username:{username},
+                        Email: {email},
+                        Password:{password}
                         </li>
                 )
             })
