@@ -33,6 +33,7 @@ const Todo = () => {
         setlistData(updatedList)
     }
 
+    
     //clearAllTodos
     const clearAllTodos = () => {
         setlistData([])
@@ -46,6 +47,7 @@ const Todo = () => {
     return(
         <>
         <div>
+            <h1>ToDo List</h1>
             <input 
             type="text"
             placeholder="Enter your todo"
@@ -61,7 +63,8 @@ const Todo = () => {
 
                     <div key={index}>
                     <ul>
-                        <li>{data} <button onClick={()=>handleRemove(index)}>Remove</button></li>
+                        <li>{data} 
+                        <button onClick={()=>handleRemove(index)}>Remove</button></li>
                     </ul>
                     </div>
                     
