@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       {/* <UseStateHook /> */}
-      <UseEffectHook/>
+      {/* <UseEffectHook/> */}
       
     </div>
   )
